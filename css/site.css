@@ -72,3 +72,7 @@ main>.container {
     bottom: 0;
     width: 100%;
 }
+
+.logoFont{
+    font-family: 'Open Sans', sans-serif;
+}
