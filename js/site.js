@@ -25,7 +25,7 @@ function getValues(){
 //logic function(s)
 function generateNumbers(sValue, eValue){
 
-    let number = [];
+    let numbers = [];
 
     //we want to get all numbers from start to end
 
