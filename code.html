@@ -27,7 +27,8 @@
     <!-- ======= Nav Section ======= -->
     <nav class="navbar navbar-expand-md navbar-dark fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand logoFont" href="/"><img src="img/RJMJIconWhite.png" class="d-inline-block align-text-top" width="30" height="30"> Ciento</a>
+            <a class="navbar-brand logoFont" href="/"><img src="img/RJMJIconWhite.png"
+                    class="d-inline-block align-text-top" width="30" height="30"> Ciento</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -44,10 +45,12 @@
                         <a class="nav-link active" aria-current="page" href="code.html">The Code</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" target="_blank" href="https://github.com/rudyjmj/Hundo">Git Repo</a> <!--link to GitHub Repo for App-->
+                        <a class="nav-link" target="_blank" href="https://github.com/rudyjmj/Hundo">Git Repo</a>
+                        <!--link to GitHub Repo for App-->
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" target="_blank" href="https://rjmj.dev/">About</a> <!--link to portfolio-->
+                        <a class="nav-link" target="_blank" href="https://rjmj.dev/">About</a>
+                        <!--link to portfolio-->
                     </li>
                 </ul>
             </div>
@@ -60,17 +63,78 @@
             <div class="row row-cols-1 row-cols-lg-2">
                 <div class="col-lg-8">
                     <pre class="line-numbers"><code class="language-javascript">
-                        //Call Hello World
-                        function HelloWorld(){
-                            alert("Hello World");
+                        // Retrieve input values from the web page and call other functions
+                        function getValues() {
+                            // Retrieve start and end values from web page
+                            let startValue = document.getElementById("startValue").value;
+                            let endValue = document.getElementById("endValue").value;
+
+                            // Validate input as integers
+                            startValue = parseInt(startValue);
+                            endValue = parseInt(endValue);
+
+                            if (Number.isInteger(startValue) && Number.isInteger(endValue)) {
+                                // Generate array of numbers between start and end values
+                                let numbers = generateNumbers(startValue, endValue);
+                                // Display generated numbers on web page
+                                displayNumbers(numbers);
+                            }
+                            else {
+                                // Display an alert if input values are not integers
+                                alert("You must enter integers!");
+                            }
+                        }
+
+                        // Generate array of numbers between start and end values
+                        function generateNumbers(startValue, endValue) {
+                            let numbers = [];
+
+                            // Generate numbers between start and end values and add them to the array
+                            for (let i = startValue; i <= endValue; i++) {
+                                numbers.push(i);
+                            }
+
+                            return numbers;
+                        }
+
+                        // Display the generated numbers on the web page, with even numbers marked in bold
+                        function displayNumbers(numbers) {
+                            let tableRows = "";
+
+                            // Loop through each number in the array and add it to the table as a row
+                            for (let i = 0; i < numbers.length; i++) {
+                                let number = numbers[i];
+                                let rowClass = "";
+
+                                if (number % 2 === 0) {
+                                    // If number is even, mark the row as bold
+                                    rowClass = "even";
+                                }
+
+                                // Add the number to the table as a row
+                                tableRows += `<tr><td class="${rowClass}">${number}</td></tr>`;
+                            }
+
+                            // Display the table on the web page
+                            document.getElementById("results").innerHTML = tableRows;
                         }
                     </code>
                     </pre>
                 </div>
                 <div class="col-lg-4">
-                    <p>The Code is structured in one function.</p>
-                    <h5>Hello World</h5>
-                    <p>Hello World is a function that displays an alert with a message of "Hello World".</p>
+                    <h5>Function: <strong>getValues()</strong></h5>
+                    <p>This function retrieves the start and end values from the web page and calls the
+                        generateNumbers() and displayNumbers() functions. It validates that the inputs are integers and
+                        displays an alert if the inputs are invalid.</p>
+                    <h5>Function: <strong>generateNumbers(sValue, eValue)</strong></h5>
+                    <p>This function generates an array of numbers between 0 and 100, inclusive, with a given starting
+                        and ending value.</p>
+                    <h5>Function: <strong> displayNumbers(numbers)</strong></h5>
+                    <p>This function displays the generated numbers on the web page, with even numbers marked in bold.
+                    </p>
+                    <p><strong>Overall, this code retrieves the start and end values from the web page, generates an
+                            array of numbers between 0 and 100 with even numbers marked in bold, and then displays those
+                            numbers on the web page.</strong></p>
                 </div>
             </div>
         </div>
@@ -80,16 +144,21 @@
         <div class="container-fluid">
             <div class="row row-cols-1 row-cols-lg-3 gy-2">
                 <div class="col d-flex align-items-center col order-last order-lg-first text-light">
-                    <div><span class="text-muted">&copy;2022 </span>RJMJ Technical Services, LLC | <a href="mailto:Rudy@rjmj.dev">Rudy@rjmj.dev</a></div>
+                    <div><span class="text-muted">&copy;2022 </span>RJMJ Technical Services, LLC | <a
+                            href="mailto:Rudy@rjmj.dev">Rudy@rjmj.dev</a></div>
                 </div>
                 <div class="col d-flex alight-items-center justify-content-start justify-content-lg-center">
-                    <a href="https://rjmj.dev/" target="_blank"><img src="img/RJMJLogoFCWhiteLarge.svg" alt="RJMJ Logo" height="40"></a>
+                    <a href="https://rjmj.dev/" target="_blank"><img src="img/RJMJLogoFCWhiteLarge.svg" alt="RJMJ Logo"
+                            height="40"></a>
                 </div>
                 <div class="col d-flex align-items-center justify-content-start justify-content-lg-end">
                     <div class="row">
-                        <div class="col social"><a href="https://www.linkedin.com/in/rodolfo-morales-jr/" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a></div>
-                        <div class="col social"><a href="https://github.com/rudyjmj" target="_blank"><i class="fab fa-github fa-2x"></i></a></div>
-                        <div class="col social"><a href="https://twitter.com/RudyJMJ" target="_blank"><i class="fab fa-twitter fa-2x"></i></a></div>
+                        <div class="col social"><a href="https://www.linkedin.com/in/rodolfo-morales-jr/"
+                                target="_blank"><i class="fab fa-linkedin fa-2x"></i></a></div>
+                        <div class="col social"><a href="https://github.com/rudyjmj" target="_blank"><i
+                                    class="fab fa-github fa-2x"></i></a></div>
+                        <div class="col social"><a href="https://twitter.com/RudyJMJ" target="_blank"><i
+                                    class="fab fa-twitter fa-2x"></i></a></div>
                     </div>
                 </div>
             </div>
